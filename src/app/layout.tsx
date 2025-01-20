@@ -23,7 +23,9 @@ export default function RootLayout({
 
   return (
     <html lang="en" className="h-full">
-      <body className={`${geistSans.variable} ${geistMono.variable} h-full`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} h-full bg-black`}
+      >
         <Header />
         <div className="h-full relative">
           {Array.from({ length: starCount }).map((_, index) => (
