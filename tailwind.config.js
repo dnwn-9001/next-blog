@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       keyframes: {
-        //CSS 애니메이션의 키프레임을 정의
+        //CSS 애니메이션의 키프레임을 정의(css 애니메이션 과정의 중간 절차를 제어할 수 있게함)
         twinkle: {
           // 애니메이션 이름
           "0%, 100%": {
@@ -14,7 +14,6 @@ module.exports = {
           },
           "50%": {
             opacity: 1,
-            // boxShadow: ' 0 0 10px 3px rgb(255, 255, 255, 0.7)',
           }, // 애니메이션 중간에서 opacity를 1로 설정
         },
       },
