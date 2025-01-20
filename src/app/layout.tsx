@@ -1,7 +1,8 @@
-import type { Metadata } from "next";
+"use client";
 import "./globals.css";
 import { Geist, Geist_Mono } from "next/font/google";
 import Header from "@/components/common/header";
+import Star from "@/components/styles/star";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,21 +14,23 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Blog",
-  description: "광활한 블로그",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const starCount: number = 80; // 원하는 별의 개수
+
   return (
     <html lang="en" className="h-full">
       <body className={`${geistSans.variable} ${geistMono.variable} h-full`}>
         <Header />
-        {children}
+        <div className="h-full relative">
+          {Array.from({ length: starCount }).map((_, index) => (
+            <Star key={index} />
+          ))}
+          {children}
+        </div>
       </body>
     </html>
   );
