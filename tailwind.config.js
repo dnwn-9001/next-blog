@@ -2,6 +2,9 @@
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
+    borderWidth: {
+      1.5: "1.5px",
+    },
     extend: {
       keyframes: {
         //CSS 애니메이션의 키프레임을 정의(css 애니메이션 과정의 중간 절차를 제어할 수 있게함)
