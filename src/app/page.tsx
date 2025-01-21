@@ -1,5 +1,8 @@
-import React from "react";
-
+import PostItem from "@/components/posts/postItem";
 export default function Page() {
-  return <div className="h-full text-white"></div>;
+  return (
+    <div className="h-full text-white">
+      <PostItem />
+    </div>
+  );
 }
