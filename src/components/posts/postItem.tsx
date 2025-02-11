@@ -1,13 +1,28 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import RadioLabel from "../common/radioLabel";
+import CardTypeItem from "./cardTypeItem";
+
+interface PostData {
+  userId: string;
+  id: number;
+  title: string;
+  body: string;
+}
 
 export default function PostItem() {
   const [itemType, setItemType] = useState("card");
+  const [postData, setPostData] = useState<PostData[]>([]);
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then((response) => response.json())
+      .then((json) => setPostData(json.slice(0, 10)));
+  }, []);
 
   return (
     <div className="w-10/12 m-auto">
-      <div className="m-auto mt-32 mb-6 flex justify-center">
+      <div className="m-auto mt-28 mb-6 flex justify-end">
         <RadioLabel
           label="카드형"
           name="radio-1"
@@ -21,17 +36,16 @@ export default function PostItem() {
         />
       </div>
       {itemType === "card" ? (
-        <div className="h-full flex flex-wrap justify-center">
-          <div className="w-1/6 h-80 bg-slate-50 rounded-xl mx-3.5"></div>
-          <div className="w-1/6 h-80 bg-slate-50 rounded-xl mx-3.5"></div>
-          <div className="w-1/6 h-80 bg-slate-50 rounded-xl mx-3.5"></div>
-          <div className="w-1/6 h-80 bg-slate-50 rounded-xl mx-3.5"></div>
-          <div className="w-1/6 h-80 bg-slate-50 rounded-xl mx-3.5"></div>
-          <div className="w-1/6 h-80 bg-slate-50 rounded-xl mx-3.5"></div>
-          <div className="w-1/6 h-80 bg-slate-50 rounded-xl mx-3.5"></div>
-          <div className="w-1/6 h-80 bg-slate-50 rounded-xl mx-3.5"></div>
-          <div className="w-1/6 h-80 bg-slate-50 rounded-xl mx-3.5"></div>
-          <div className="w-1/6 h-80 bg-slate-50 rounded-xl mx-3.5"></div>
+        <div className="h-full flex flex-wrap gap-5">
+          {postData.map((item) => (
+            <CardTypeItem
+              key={item.id}
+              title={item.title}
+              contents={item.body}
+              writer={item.userId}
+              imgUrl="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+            />
+          ))}
         </div>
       ) : (
         <h1>리스트형으로 들어와야함</h1>
