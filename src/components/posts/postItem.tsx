@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import RadioLabel from "../common/radioLabel";
 import CardTypeItem from "./cardTypeItem";
+import ListTypeItem from "./listTypeItem";
 
 interface PostData {
   userId: string;
@@ -48,7 +49,17 @@ export default function PostItem() {
           ))}
         </div>
       ) : (
-        <h1>리스트형으로 들어와야함</h1>
+        <div>
+          {postData.map((item) => (
+            <ListTypeItem
+              key={item.id}
+              title={item.title}
+              contents={item.body}
+              writer={item.userId}
+              imgUrl="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+            />
+          ))}
+        </div>
       )}
     </div>
   );
