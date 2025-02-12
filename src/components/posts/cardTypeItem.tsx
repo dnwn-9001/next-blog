@@ -19,8 +19,9 @@ function CardTypeItem({
       <div className="card-body">
         <h2 className="card-title">{title.slice(0, 30)}</h2>
         <p>{contents.slice(0, 60)}</p>
-        <div className="card-actions justify-end">
-          <button className="btn btn-primary">{writer}</button>
+
+        <div className="card-actions justify-end mt-3">
+          <p>{writer}</p>
         </div>
       </div>
     </div>

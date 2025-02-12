@@ -20,7 +20,7 @@ function RadioLabel({
         defaultChecked={defaultChecked}
         onClick={onClick}
       />
-      <span className="label-text">{label}</span>
+      <span className="label-text ml-2">{label}</span>
     </label>
   );
 }
