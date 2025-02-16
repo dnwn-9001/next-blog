@@ -12,7 +12,7 @@ export default function Header() {
           로그인
         </button>
       </div>
-      <Modal title="로그인" contents="로그인창입니다" />
+      <Modal title="로그인" contents="이메일로 로그인" />
     </div>
   );
 }
