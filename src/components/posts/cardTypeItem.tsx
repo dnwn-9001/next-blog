@@ -12,7 +12,7 @@ function CardTypeItem({
   imgUrl,
 }: CardTypeItemProps): React.ReactElement {
   return (
-    <div className="w-[calc(25%-1rem)] card bg-base-100 shadow-xl">
+    <div className="w-[calc(33%-1rem)] card bg-base-100 shadow-xl">
       <figure>
         <img src={imgUrl} alt="게시글" />
       </figure>

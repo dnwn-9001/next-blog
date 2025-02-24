@@ -12,9 +12,9 @@ function ListTypeItem({
   imgUrl,
 }: ListTypeItemProps): React.ReactElement {
   return (
-    <div className="card bg-base-100 w-full shadow-xl mb-5">
+    <div className="card bg-base-100 shadow-xl mb-5 h-64">
       <div className="card-body flex flex-row">
-        <img className="w-40 mr-5 rounded-sm" src={imgUrl} alt="게시글" />
+        <img className="w-60 mr-5 rounded-sm" src={imgUrl} alt="게시글" />
         <div>
           <h2 className="card-title">{title}</h2>
           <p>{contents}</p>

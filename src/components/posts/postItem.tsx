@@ -22,8 +22,12 @@ export default function PostItem() {
   }, []);
 
   return (
-    <div className="w-10/12 m-auto">
-      <div className="m-auto mt-28 mb-6 flex justify-end">
+    <div className="w-10/12 m-auto flex flex-col items-center">
+      <div
+        className="m-auto mt-28 mb-6 flex justify-end"
+        role="radiogroup"
+        aria-label="게시물 표시 방식 선택"
+      >
         <RadioLabel
           label="카드형"
           name="radio-1"
@@ -37,7 +41,7 @@ export default function PostItem() {
         />
       </div>
       {itemType === "card" ? (
-        <div className="h-full flex flex-wrap gap-5">
+        <div className="h-full flex flex-wrap gap-7 w-3/4">
           {postData.map((item) => (
             <CardTypeItem
               key={item.id}
@@ -49,7 +53,7 @@ export default function PostItem() {
           ))}
         </div>
       ) : (
-        <div>
+        <div className="w-3/4">
           {postData.map((item) => (
             <ListTypeItem
               key={item.id}
