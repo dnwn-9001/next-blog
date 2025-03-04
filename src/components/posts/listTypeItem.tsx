@@ -3,6 +3,7 @@ interface ListTypeItemProps {
   contents: string;
   writer: string;
   imgUrl?: string;
+  onClick: () => void;
 }
 
 function ListTypeItem({
@@ -10,9 +11,13 @@ function ListTypeItem({
   contents,
   writer,
   imgUrl,
+  onClick,
 }: ListTypeItemProps): React.ReactElement {
   return (
-    <div className="card bg-base-100 shadow-xl mb-5 h-64">
+    <div
+      className="card bg-base-100 shadow-xl mb-5 h-64 cursor-pointer"
+      onClick={onClick}
+    >
       <div className="card-body flex flex-row">
         <img className="w-60 mr-5 rounded-sm" src={imgUrl} alt="게시글" />
         <div>

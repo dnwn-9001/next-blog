@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import RadioLabel from "../common/radioLabel";
 import CardTypeItem from "./cardTypeItem";
 import ListTypeItem from "./listTypeItem";
+import { useRouter } from "next/navigation";
 
 interface PostData {
   userId: string;
@@ -11,9 +12,10 @@ interface PostData {
   body: string;
 }
 
-export default function PostItem() {
+export default function PostItem(): React.ReactElement {
   const [itemType, setItemType] = useState("card");
   const [postData, setPostData] = useState<PostData[]>([]);
+  const router = useRouter();
 
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/posts")
@@ -49,6 +51,7 @@ export default function PostItem() {
               contents={item.body}
               writer={item.userId}
               imgUrl="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+              onClick={() => router.push(`/posts/${item.id}`)}
             />
           ))}
         </div>
@@ -61,6 +64,7 @@ export default function PostItem() {
               contents={item.body}
               writer={item.userId}
               imgUrl="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+              onClick={() => router.push(`/posts/${item.id}`)}
             />
           ))}
         </div>

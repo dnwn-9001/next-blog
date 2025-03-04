@@ -3,6 +3,7 @@ interface CardTypeItemProps {
   contents: string;
   writer: string;
   imgUrl?: string;
+  onClick: () => void;
 }
 
 function CardTypeItem({
@@ -10,9 +11,13 @@ function CardTypeItem({
   contents,
   writer,
   imgUrl,
+  onClick,
 }: CardTypeItemProps): React.ReactElement {
   return (
-    <div className="w-[calc(33%-1rem)] card bg-base-100 shadow-xl">
+    <div
+      className="w-[calc(33%-1rem)] card bg-base-100 shadow-xl cursor-pointer"
+      onClick={onClick}
+    >
       <figure>
         <img src={imgUrl} alt="게시글" />
       </figure>
