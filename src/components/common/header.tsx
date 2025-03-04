@@ -1,5 +1,5 @@
 import Modal from "./modal";
-import Button from "./button";
+import { TransparentButton } from "./button";
 import { useRouter } from "next/navigation";
 
 export default function Header(): React.ReactElement {
@@ -18,8 +18,11 @@ export default function Header(): React.ReactElement {
           LOGO
         </div>
         <div>
-          <Button label="글 작성" onClick={() => handleWriteClick()} />
-          <Button
+          <TransparentButton
+            label="글 작성"
+            onClick={() => handleWriteClick()}
+          />
+          <TransparentButton
             label="로그인"
             onClick={() => document.getElementById("my_modal").showModal()}
           />

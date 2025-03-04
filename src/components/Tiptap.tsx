@@ -43,7 +43,7 @@ const Tiptap = () => {
 
   return (
     <div className="mx-auto p-4 shadow-md rounded-lg">
-      <div className="space-y-4 w-">
+      <div className="space-y-4 w-4/6">
         {/* 제목 입력란 */}
         <div className="mt-16">
           <div>
