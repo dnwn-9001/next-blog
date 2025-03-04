@@ -51,7 +51,7 @@ export default function PostItem(): React.ReactElement {
               contents={item.body}
               writer={item.userId}
               imgUrl="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-              onClick={() => router.push(`/posts/${item.id}`)}
+              onClick={() => router.push(`/post/${item.id}`)}
             />
           ))}
         </div>
@@ -64,7 +64,7 @@ export default function PostItem(): React.ReactElement {
               contents={item.body}
               writer={item.userId}
               imgUrl="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-              onClick={() => router.push(`/posts/${item.id}`)}
+              onClick={() => router.push(`/post/${item.id}`)}
             />
           ))}
         </div>
