@@ -13,7 +13,6 @@ if (!globalForSupabase.supabase) {
       auth: {
         autoRefreshToken: true,
         persistSession: true,
-        detectSessionInUrl: false, // Magic Link 자동 리디렉트 방지
       },
     }
   );
