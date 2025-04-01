@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import { supabase } from "@/utils/supabase/client";
-
 interface ModalProps {
   title: string;
   contents: string;
@@ -18,7 +17,6 @@ export default function Modal({
     const { error } = await supabase.auth.signInWithOtp({ email });
 
     if (error) {
-      console.error("Magic Link 요청 실패:", error);
       throw new Error(error.message);
     } else {
       console.log("Magic Link가 이메일로 발송됨!");
