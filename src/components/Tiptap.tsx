@@ -9,7 +9,11 @@ import Bold from "@tiptap/extension-bold";
 import Italic from "@tiptap/extension-italic";
 import Placeholder from "@tiptap/extension-placeholder";
 
-const Tiptap = () => {
+interface TiptapProps {
+  setTitle: (title: string) => void;
+  setContent: (content: string) => void;
+}
+const Tiptap = ({ setTitle, setContent }: TiptapProps) => {
   const TitleEditor = useEditor({
     extensions: [
       Document,
@@ -22,6 +26,9 @@ const Tiptap = () => {
     ],
     autofocus: false,
     editable: true,
+    onUpdate: ({ editor }) => {
+      setTitle(editor.getHTML()); // editor.getText() 사용 가능
+    },
   });
 
   const contentsEditor = useEditor({
@@ -35,6 +42,9 @@ const Tiptap = () => {
     ],
     autofocus: false,
     editable: true,
+    onUpdate: ({ editor }) => {
+      setContent(editor.getHTML());
+    },
   });
 
   if (!TitleEditor || !contentsEditor) {
